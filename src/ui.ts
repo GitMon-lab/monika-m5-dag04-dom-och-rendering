@@ -56,6 +56,14 @@ export function visaMeny(container: HTMLElement, ratter: Ratt[]): void {
 
 // 3. Sätt rubrikens text: "Meny (8 rätter)". Ett enda: "Meny (1 rätt)".
 export function uppdateraRubrik(element: HTMLElement, antal: number): void {
+    let rubrik: string = ''
+
+    if (antal === 1) {
+        element.textContent = 'Meny 1 rätt)'
+    } else {
+        element.textContent = 'Meny (${antal} rätter)'
+    }
+
     // TODO
 }
 
@@ -63,4 +71,10 @@ export function uppdateraRubrik(element: HTMLElement, antal: number): void {
 //    data-id, och inte på något annat kort. Anropas igen = markeringen flyttas.
 export function markeraDagensRatt(container: HTMLElement, id: number): void {
     // TODO
+    const allaKort = container.querySelectorAll('article')
+    for (const kort of allaKort) {
+        kort.classList.remove('dagens')
+    }
+    const valtKort = container.querySelector(`[data-id="$ {id}"]`)
+    valtKort?.classList.add('dagens')
 }

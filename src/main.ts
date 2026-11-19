@@ -55,6 +55,9 @@ hero?.classList.remove('dagens')
 
 // 7. Hämta #meny-lista och #meny-rubrik.
 
+const menyLista = document.querySelector<HTMLElement>('#meny-lista')
+const menyLista = document.querySelector<HTMLElement>('#meny-rubrik')
+
 // 8. Anropa visaMeny med menyn, och uppdateraRubrik med antalet rätter.
 
 // 9. Dagens rätt = den billigaste lunchen. Använd filter och billigast (från meny.js)

@@ -75,11 +75,14 @@ Uppgift 6: ett säkerhetsförsök. Sätt `innerHTML` till en bildtagg med `onerr
 
 ### Steg 6. skapaRattKort
 
-Öppna `src/ui.ts` och `tests.html`. Skriv `skapaRattKort(ratt)`: ett `article` med bild, rubrik, beskrivning och pris, byggt med `createElement` och `textContent`. Funktionen _returnerar_ kortet. Tester kontrollerar bland annat att text från data aldrig tolkas som HTML.
+Öppna `src/ui.ts` och `tests.html`.
+Skriv `skapaRattKort(ratt)`: ett `article` med bild, rubrik, beskrivning och pris, byggt med `createElement` och `textContent`.
+Funktionen _returnerar_ kortet. Tester kontrollerar bland annat att text från data aldrig tolkas som HTML.
 
 ### Steg 7. visaMeny
 
-Skriv `visaMeny(container, ratter)`: töm containern (`replaceChildren()`), lägg in ett kort per rätt. Är listan tom ska ett `p` med klassen `tom` visas. Det här är ditt första _tomt-läge_.
+Skriv `visaMeny(container, ratter)`: töm containern (`replaceChildren()`), lägg in ett kort per rätt.
+Är listan tom ska ett `p` med klassen `tom` visas. Det här är ditt första _tomt-läge_.
 
 ### Steg 8. Rubrik och dagens rätt
 

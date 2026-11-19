@@ -56,16 +56,28 @@ hero?.classList.remove('dagens')
 // 7. Hämta #meny-lista och #meny-rubrik.
 
 const menyLista = document.querySelector<HTMLElement>('#meny-lista')
-const menyLista = document.querySelector<HTMLElement>('#meny-rubrik')
+const menyRubrik = document.querySelector<HTMLElement>('#meny-rubrik')
 
 // 8. Anropa visaMeny med menyn, och uppdateraRubrik med antalet rätter.
 
-// 9. Dagens rätt = den billigaste lunchen. Använd filter och billigast (från meny.js)
-//    och markeraDagensRatt.
+if (menyLista && menyRubrik) {
+    visaMeny(menyLista, meny)
+    uppdateraRubrik(menyRubrik, meny.length)
 
+    // 9. Dagens rätt = den billigaste lunchen. Använd filter och billigast (från meny.js)
+    //    och markeraDagensRatt.
+
+    const luncher = meny.filter((ratt) => ratt.kategori === 'lunch')
+    const dagensRatt = billigast(luncher)
+
+    if (dagensRatt) {
+        markeraDagensRatt(menyLista, dagensRatt.id)
+    }
+}
 // TODO
 
-const menyLista = document.querySelector<HTMLElement>('#meny-lista')
-if (menyLista) {
-    visaMeny(menyLista, meny)
-}
+//if (menyLista) {
+//  visaMeny(menyLista, meny)
+//}
+
+//console.log(`Luncher:`, luncher, ` Dagens rätt:` dagensRatt )

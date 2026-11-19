@@ -16,18 +16,24 @@ import type { Ratt } from './typer'
 export function skapaRattKort(ratt: Ratt): HTMLElement {
     // TODO
     const kort = document.createElement('article')
-    //kort.dataset.id = String(ratt.id)
-    kort.dataset.id = '1'
+    kort.dataset.id = String(ratt.id)
+    //kort.dataset.id = '1'
 
     const img = document.createElement('img')
-    img.src = './images/bulle.svg'
-    img.alt = 'Illustration av ${ratt.namn} '
+
+    //null sammanslagning om värdet saknas blir det tom teststräng om bild finns visa annars tomt
+    //nullish  img.src = ratt.bild ?? tenary
+    //?:= välj mellan a och b
+    // ?? reserbplan saknas värdet ta detta
+    // ?. = finns elementet? gå vidare annars stanna
+    img.src = ratt.bild ? ratt.bild : ''
+    img.alt = `Illustration av ${ratt.namn} `
 
     const h3 = document.createElement('h3')
     h3.textContent = ratt.namn
 
     const beskrivning = document.createElement('p')
-    beskrivning.textContent = 'Beskrivning'
+    beskrivning.textContent = ratt.beskrivning ?? ''
 
     const pris = document.createElement('p')
     pris.className = 'pris'
@@ -41,10 +47,12 @@ export function skapaRattKort(ratt: Ratt): HTMLElement {
 //    Är listan tom: visa <p class="tom">Inga rätter hittades.</p> istället.
 export function visaMeny(container: HTMLElement, ratter: Ratt[]): void {
     // TODO
+    //container.innerHtml = '';
+    container.replaceChildren() //rensar alla noder och element, innerHtml fungerade inte
     if (ratter.length === 0) {
         const p = document.createElement('p')
         p.className = 'tom'
-        p.textContent = ' Inga rätter hittades.'
+        p.textContent = 'Inga rätter hittades.'
         container.append(p)
         return
     }
@@ -59,9 +67,9 @@ export function uppdateraRubrik(element: HTMLElement, antal: number): void {
     let rubrik: string = ''
 
     if (antal === 1) {
-        element.textContent = 'Meny 1 rätt)'
+        element.textContent = `Meny (1 rätt)`
     } else {
-        element.textContent = 'Meny (${antal} rätter)'
+        element.textContent = `Meny (${antal} rätter)`
     }
 
     // TODO
@@ -75,6 +83,6 @@ export function markeraDagensRatt(container: HTMLElement, id: number): void {
     for (const kort of allaKort) {
         kort.classList.remove('dagens')
     }
-    const valtKort = container.querySelector(`[data-id="$ {id}"]`)
+    const valtKort = container.querySelector(`[data-id="${id}"]`)
     valtKort?.classList.add('dagens')
 }

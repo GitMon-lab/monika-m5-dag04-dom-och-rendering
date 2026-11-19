@@ -98,12 +98,12 @@ I Console (eller tillfälligt i `src/main.ts`): anropa `visaMeny(lista, [])`. Vi
 
 ## Kontrollista: så vet du att du är klar
 
-- [ ] Alla 31 tester på `tests.html` är gröna (17 från igår och 14 nya).
-- [ ] Menyn på `index.html` byggs av JavaScript och ser ut som i modul 4.
-- [ ] Den billigaste lunchrätten är markerad som dagens rätt.
-- [ ] Du använder `textContent` och `createElement`, inte `innerHTML`, för data.
-- [ ] Du kan förklara skillnaden mellan `querySelector` och `querySelectorAll`.
-- [ ] Du har gjort minst sex commits.
+- [ x] Alla 31 tester på `tests.html` är gröna (17 från igår och 14 nya).
+- [x ] Menyn på `index.html` byggs av JavaScript och ser ut som i modul 4.
+- [x ] Den billigaste lunchrätten är markerad som dagens rätt.
+- [ x] Du använder `textContent` och `createElement`, inte `innerHTML`, för data.
+- [ x] Du kan förklara skillnaden mellan `querySelector` och `querySelectorAll`.
+- [ x] Du har gjort minst sex commits.
 
 ## Tips om du fastnar
 

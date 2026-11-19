@@ -1,6 +1,6 @@
 # Dag 4 · DOM: kaféets sida byggs av data
 
-*Modul 5, UI/UX & Frontendutveckling (TypeScript), Lexicon IT-Proffs*
+_Modul 5, UI/UX & Frontendutveckling (TypeScript), Lexicon IT-Proffs_
 
 ## Vad du ska göra idag
 
@@ -8,20 +8,20 @@ Du lär dig **DOM**: hur JavaScript hittar, läser, ändrar och skapar element p
 
 ## Bakgrund
 
-När webbläsaren läser din HTML bygger den ett *träd* av element: **DOM** (Document Object Model). JavaScript kan hitta ett element i trädet, läsa det, ändra det och skapa nya. Det är så alla dynamiska sidor fungerar. Du har redan en färdig sida från modul 4 (kaféets sida finns i det här repot), och menyn från igår ligger som data. Idag kopplar du ihop dem.
+När webbläsaren läser din HTML bygger den ett _träd_ av element: **DOM** (Document Object Model). JavaScript kan hitta ett element i trädet, läsa det, ändra det och skapa nya. Det är så alla dynamiska sidor fungerar. Du har redan en färdig sida från modul 4 (kaféets sida finns i det här repot), och menyn från igår ligger som data. Idag kopplar du ihop dem.
 
 ## TypeScript idag: DOM och null
 
 DOM-funktioner ger ofta tillbaka `null` om elementet inte finns. TypeScript vet det och tvingar dig att hantera det:
 
 ```ts
-const rubrik = document.querySelector<HTMLElement>("#hero-rubrik");
-rubrik.textContent = "Hej";          // Fel: 'rubrik' is possibly 'null'.
+const rubrik = document.querySelector<HTMLElement>('#hero-rubrik')
+rubrik.textContent = 'Hej' // Fel: 'rubrik' is possibly 'null'.
 
 if (rubrik) {
-  rubrik.textContent = "Hej";        // går bra: TypeScript vet att rubrik finns här
+    rubrik.textContent = 'Hej' // går bra: TypeScript vet att rubrik finns här
 }
-rubrik?.classList.add("dagens");     // ?. gör ingenting om rubrik är null
+rubrik?.classList.add('dagens') // ?. gör ingenting om rubrik är null
 ```
 
 - `querySelector<HTMLElement>("#id")` säger vilken sorts element du får (utan det är typen bara `Element`, som saknar till exempel `dataset`).
@@ -32,16 +32,18 @@ rubrik?.classList.add("dagens");     // ?. gör ingenting om rubrik är null
 
 ## Så arbetar du (samma som alltid)
 
-1. **Forka** dagens repo på GitHub (*Fork → Create fork*).
-2. **Klona din fork:** *Code → HTTPS → kopiera adressen*. I terminalen (Ctrl+ö i VS Code): `git clone <adressen>`. Öppna den nya mappen i VS Code.
+1. **Forka** dagens repo på GitHub (_Fork → Create fork_).
+2. **Klona din fork:** _Code → HTTPS → kopiera adressen_. I terminalen (Ctrl+ö i VS Code): `git clone <adressen>`. Öppna den nya mappen i VS Code.
+
 3. **Installera verktygen, en gång per repo:** `npm install` i terminalen.
-4. **Starta servern:** `npm run dev`. Öppna adressen den skriver ut (oftast `http://localhost:5173/`). Tryck F12 och välj fliken *Console*. Stoppa med Ctrl+C. Testsidan öppnar du på samma server: `http://localhost:5173/tests.html` (lägg till `/tests.html` efter adressen).
+4. **Starta servern:** `npm run dev`. Öppna adressen den skriver ut (oftast `http://localhost:5173/`). Tryck F12 och välj fliken _Console_. Stoppa med Ctrl+C. Testsidan öppnar du på samma server: `http://localhost:5173/tests.html` (lägg till `/tests.html` efter adressen).
 5. **Gör uppgiften.** Spara och kontrollera i webbläsaren och Console efter varje steg. Gör en commit efter varje avslutat steg: `git add .` och `git commit -m "Beskriv vad du gjorde"`.
+
 6. **Kontrollera typerna:** `npm run typecheck`. Tyst betyder att alla typer stämmer. Röda understrykningar i VS Code är TypeScript som varnar.
 7. **Skicka upp** när du är klar: `git push`.
 8. **Lämna in i Microsoft Forms.**
 
-Fastnar du: skriv ner exakt var och vad du försökt (och vilket felmeddelande du fick), och ta det först i nästa handledda pass. Problem med `npm` eller Node? Läs *Elevguide: Node, Vite och TypeScript*.
+Fastnar du: skriv ner exakt var och vad du försökt (och vilket felmeddelande du fick), och ta det först i nästa handledda pass. Problem med `npm` eller Node? Läs _Elevguide: Node, Vite och TypeScript_.
 
 > Vite tar bara bort typerna och kör koden. Den kontrollerar dem inte. Sidan kan alltså köras trots röda understrykningar.
 
@@ -49,7 +51,11 @@ Fastnar du: skriv ner exakt var och vad du försökt (och vilket felmeddelande d
 
 ### Steg 1. Utforska med DevTools
 
-Öppna adressen från `npm run dev`. Öppna DevTools → *Elements*. Klicka på ett element, öppna *Console* och skriv `$0`. Du har nu en referens till elementet. Skriv `$0.textContent` och `$0.className`. Prova `document.querySelector("h1")` direkt i Console.
+Öppna adressen från `npm run dev`. Öppna DevTools → _Elements_. Klicka på ett element, öppna _Console_ och skriv `$0`.
+Du har nu en referens till elementet. Skriv `$0.textContent` och `$0.className`.
+Prova `document.querySelector("h1")` direkt i Console.
+`$0.textContent`
+`$0.textContent`
 
 ### Steg 2. Hämta och ändra
 
@@ -57,7 +63,7 @@ Fastnar du: skriv ner exakt var och vad du försökt (och vilket felmeddelande d
 
 ### Steg 3. Skapa ett nytt element
 
-Uppgift 4: skapa ett nytt `p` med `createElement`, ge det text med `textContent` och lägg det sist i hero-sektionen med `append`. Fundera: var finns elementet *innan* du lägger in det?
+Uppgift 4: skapa ett nytt `p` med `createElement`, ge det text med `textContent` och lägg det sist i hero-sektionen med `append`. Fundera: var finns elementet _innan_ du lägger in det?
 
 ### Steg 4. Klasser
 
@@ -69,11 +75,11 @@ Uppgift 6: ett säkerhetsförsök. Sätt `innerHTML` till en bildtagg med `onerr
 
 ### Steg 6. skapaRattKort
 
-Öppna `src/ui.ts` och `tests.html`. Skriv `skapaRattKort(ratt)`: ett `article` med bild, rubrik, beskrivning och pris, byggt med `createElement` och `textContent`. Funktionen *returnerar* kortet. Tester kontrollerar bland annat att text från data aldrig tolkas som HTML.
+Öppna `src/ui.ts` och `tests.html`. Skriv `skapaRattKort(ratt)`: ett `article` med bild, rubrik, beskrivning och pris, byggt med `createElement` och `textContent`. Funktionen _returnerar_ kortet. Tester kontrollerar bland annat att text från data aldrig tolkas som HTML.
 
 ### Steg 7. visaMeny
 
-Skriv `visaMeny(container, ratter)`: töm containern (`replaceChildren()`), lägg in ett kort per rätt. Är listan tom ska ett `p` med klassen `tom` visas. Det här är ditt första *tomt-läge*.
+Skriv `visaMeny(container, ratter)`: töm containern (`replaceChildren()`), lägg in ett kort per rätt. Är listan tom ska ett `p` med klassen `tom` visas. Det här är ditt första _tomt-läge_.
 
 ### Steg 8. Rubrik och dagens rätt
 
@@ -100,7 +106,7 @@ I Console (eller tillfälligt i `src/main.ts`): anropa `visaMeny(lista, [])`. Vi
 
 - `Cannot read properties of null (reading ...)` betyder att `querySelector` inte hittade elementet. Kontrollera väljaren (`#` för id, `.` för klass) och att skriptet körs efter att sidan laddats. Moduler gör det automatiskt.
 - `x is not iterable`: `querySelectorAll` ger en NodeList som går att loopa med `for...of`, men `querySelector` ger ett enda element.
-- Inget syns? Skriv ut elementet med `console.log` och titta i *Elements*: finns det i trädet?
+- Inget syns? Skriv ut elementet med `console.log` och titta i _Elements_: finns det i trädet?
 - Menyn syns dubbelt? Du anropar `visaMeny` två gånger utan att tömma, eller `replaceChildren` saknas.
 - Bilder syns inte? Sökvägen i `src/data.ts` är relativ till `index.html`: `images/bulle.svg`.
 

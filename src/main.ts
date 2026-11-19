@@ -1,13 +1,26 @@
 // Dag 4: DOM. Kör npm run dev och titta i Console (F12).
 // querySelector kan ge null om elementet saknas. Hantera det med if eller ?. (TypeScript kräver det).
 // Tips: document.querySelector<HTMLElement>("#id") säger vilken sorts element du får.
-import { meny } from "./data";
-import { visaMeny, uppdateraRubrik, markeraDagensRatt } from "./ui";
-import { billigast } from "./meny";
+import { meny } from './data'
+import { visaMeny, uppdateraRubrik, markeraDagensRatt } from './ui'
+import { billigast } from './meny'
 
 // DEL 1: utforska DOM:en ----------------------------------------------
 // 1. Hämta h1 med document.querySelector("h1") och skriv ut dess textContent.
+console.log('Övning 1')
+//console.log(document.querySelector('h1').textContent)
+console.log(document.querySelector('h1')?.textContent)
+
 // 2. Ändra texten i #hero-rubrik till "Välkommen in!"
+//Typescript vet inte att h1 finns när koden körs  skriv ! eller ? för att tvinga den, eller testa innan om elementet finns
+document.querySelector('#hero-rubrik')!.textContent = 'Välkommen in'
+console.log(document.querySelector('#hero-rubrik')!.textContent)
+
+const heroRubrik = document.querySelector<HTMLElement>('#hero-rubrik')
+if (heroRubrik) {
+    heroRubrik.textContent = 'Välkommen in!'
+}
+
 // 3. Hämta alla länkar i menyn med document.querySelectorAll("nav a").
 //    Loopa med for...of och skriv ut varje länks href och text.
 // 4. Skapa ett nytt p-element (document.createElement), ge det texten
@@ -16,7 +29,6 @@ import { billigast } from "./meny";
 // 6. Säkerhetsförsök: sätt p.innerHTML = '<img src="x" onerror="console.log(\'Attack!\')">'
 //    Vad händer i Console? Byt sedan till p.textContent med samma text. Vad händer nu?
 // TODO
-
 
 // DEL 2: koppla ihop med funktionerna i ui.js ----------------------------
 // 7. Hämta #meny-lista och #meny-rubrik.

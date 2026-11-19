@@ -24,30 +24,42 @@ if (heroRubrik) {
 // 3. Hämta alla länkar i menyn med document.querySelectorAll("nav a").
 //    Loopa med for...of och skriv ut varje länks href och text.
 //const lankar = document.querySelectorAll('nav a');   För Js
-const lankar = document.querySelectorAll<HTMLAnchorElement>('nav a');
- for (const lank of lankar) { console.log(lank.href, lank.textContent); }
+const lankar = document.querySelectorAll<HTMLAnchorElement>('nav a')
+for (const lank of lankar) {
+    console.log(lank.href, lank.textContent)
+}
 
 // 4. Skapa ett nytt p-element (document.createElement), ge det texten
- //    "Dagens tips: prova en kardemummabulle." och lägg det
- // sist i #hero med append.
-const p = document.createElement("p");
-  p.textContent = "Dagens tips: prova en kardemummabulle".;
-  document.querySelector("#hero")!.append(p)
-
+//    "Dagens tips: prova en kardemummabulle." och lägg det
+// sist i #hero med append.
+const p = document.createElement('p')
+p.textContent = 'Dagens tips: prova en kardemummabulle.'
+document.querySelector('#hero')?.append(p)
 
 // 5. Lägg klassen "dagens" på #hero med classList.add. Ta bort den med classList.remove.
-document.classList.add(#hero)
-document.classList.remove
+const hero = document.querySelector('#hero')
+hero?.classList.add('dagens')
+hero?.classList.remove('dagens')
+
+console.log('--------')
+console.log(document.querySelector('.kort'))
 
 // 6. Säkerhetsförsök: sätt p.innerHTML = '<img src="x" onerror="console.log(\'Attack!\')">'
 //    Vad händer i Console? Byt sedan till p.textContent med samma text. Vad händer nu?
-p.innerHTML = '<img src="x" onerror="console.log(\'Attack!\')
+//p.innerHTML = '<img src="x" onerror="console.log(\'Attack!\')">'
+//Skriver Attack! i consol
+//p.textContent = '<img src="x" onerror="console.log(\'Attack!\')">'
+// html taggen visas på weebsidan
 
 // TODO
 
 // DEL 2: koppla ihop med funktionerna i ui.js ----------------------------
+
 // 7. Hämta #meny-lista och #meny-rubrik.
+
 // 8. Anropa visaMeny med menyn, och uppdateraRubrik med antalet rätter.
+
 // 9. Dagens rätt = den billigaste lunchen. Använd filter och billigast (från meny.js)
 //    och markeraDagensRatt.
+
 // TODO

@@ -34,15 +34,13 @@ for (const lank of lankar) {
 // sist i #hero med append.
 const p = document.createElement('p')
 p.textContent = 'Dagens tips: prova en kardemummabulle.'
-document.querySelector('#hero')?.append(p)
+// document.querySelector('#hero').append(p)     //possilbe null error, typescript fix  ! eller ?
+document.querySelector('#hero')!.append(p)
 
 // 5. Lägg klassen "dagens" på #hero med classList.add. Ta bort den med classList.remove.
 const hero = document.querySelector('#hero')
 hero?.classList.add('dagens')
 hero?.classList.remove('dagens')
-
-console.log('--------')
-console.log(document.querySelector('.kort'))
 
 // 6. Säkerhetsförsök: sätt p.innerHTML = '<img src="x" onerror="console.log(\'Attack!\')">'
 //    Vad händer i Console? Byt sedan till p.textContent med samma text. Vad händer nu?
@@ -63,3 +61,8 @@ console.log(document.querySelector('.kort'))
 //    och markeraDagensRatt.
 
 // TODO
+
+const menyLista = document.querySelector<HTMLElement>('#meny-lista')
+if (menyLista) {
+    visaMeny(menyLista, meny)
+}
